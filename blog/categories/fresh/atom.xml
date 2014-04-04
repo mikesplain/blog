@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Technology.]]></title>
-  <link href="http://mikesplain.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: fresh | Technology.]]></title>
+  <link href="http://mikesplain.github.io/blog/categories/fresh/atom.xml" rel="self"/>
   <link href="http://mikesplain.github.io/"/>
   <updated>2014-04-03T23:13:49-04:00</updated>
   <id>http://mikesplain.github.io/</id>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[A New Beginning]]></title>
+    <title type="html"><![CDATA[A new beginning]]></title>
     <link href="http://mikesplain.github.io/blog/2014/04/03/a-new-beginning/"/>
     <updated>2014-04-03T22:59:52-04:00</updated>
     <id>http://mikesplain.github.io/blog/2014/04/03/a-new-beginning</id>
