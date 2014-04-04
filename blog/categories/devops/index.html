@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Category: Devops - Technology.</title>
+  <meta name="author" content="Mike Splain">
+
+  
+  <meta name="description" content="Category: devops">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikesplain.github.ioblog/categories/devops">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Technology." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-49717104-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+  <body>
+    <a href="/" class="home-icon">
+      <img src="/images/home.png"/>
+    </a>
+
+    <div class="all-posts">
+  <div class="container">
+    <div class="row">
+      <div class="list-title col-md-offset-3 col-md-6">
+        <h4>Posts in devops</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-list">
+    <div class="container">
+      
+        
+        <div class="row">
+          <div class="col-md-offset-3 col-md-6">
+            <article>
+  <h2><a href="/blog/2014/04/03/fix-chef-cookbook-templates-without-forking/">Fix Chef Cookbook Templates Without Forking</a></h2>
+  
+  <p>
+    <p>One of the key features with Chef is reusability, which is why many teams have started using Application Cookbooks (as <a href="http://alluvium.com/blog/2013/05/03/the-application-cookbook-pattern-berkshelf-and-team-chef-workflow/">described here</a>).  In my experience, application cookbooks are a game changer and make development, testing, and deployment simple.  That being said, app cookbooks create their own set of issues as well&hellip;</p>
+
+<p>Our team has worked to use community cookbooks when possible to build out an environment, but there are often times a cookbook may be missing a simple line or an attribute required for your use case.  When that happens you have a number of options:</p>
+
+<ul>
+<li>Fork the community cookbook and make your own.</li>
+<li>Put in a pull request for the feature you require.</li>
+<li>Put in a FileEdit hack to insert configs after an &ldquo;include_recipe&rdquo; converge</li>
+<li>Override the template.</li>
+</ul>
+
+
+<p>Now all of these options are completely feasible, however lets break them down.</p>
+
+<h3>Forking the community cookbook and make it your own</h3>
+
+<p>Now this was the early way many Chef&rsquo;s used while the community was young.  Unless you have time to spend upkeeping your cookbooks, many can be left to the community to manage.  Forking them makes it challenging to track upstream changes and usually get off track.</p>
+
+<h3>Put in a pull request for the feature you require.</h3>
+
+<p>Pull requests are great and I think this is the best option, however, lets be honest, there&rsquo;s many a time I would love to put in a PR but need the issue fixed immediately. In that case, your PR and fork generally are put into use immediately and not through the community, resulting in the same issue as above.</p>
+
+<h3>Put in a FileEdit hack to insert configs after an &ldquo;include_recipe&rdquo; converge</h3>
+
+<p>This solution that avoids two of the above issues, but also causes some of it&rsquo;s own.</p>
+
+<p>Lets say you&rsquo;re building a tomcat based app and have used the <a href="https://github.com/opscode-cookbooks/tomcat">community cookbook</a>.  Now when you load the WAR into your project, you want to mount it on the base rather than www.example.com/appname.  Of course there are many ways to solve this including tools like nginx but rewrites cause other issues with sessions and cookies&hellip; so lets mount it the way our developer requests.  Unfortunately the cookbook does not provide functionality to edit the docBase Context or insert it as an attribute.  Lets insert it by hand:</p>
+
+<p>``` ruby
+ruby_block &ldquo;Fix Tomcat&rdquo; do
+  block do</p>
+
+<pre><code>puts "Lets add a line to fix tomcat docBase"
+file = Chef::Util::FileEdit.new(node[:tomcat][:config_dir] + "/server.xml")
+
+file.insert_line_after_match(
+"&lt;\!-- Access log processes all example.",
+"\n        # Added Via Chef:\n        &lt;Context docBase=\"appname\" path=\"\" reloadable=\"true\"/&gt;\n        &lt;!-- Access log processes all example."
+)
+
+file.write_file
+</code></pre>
+
+<p>  end
+```</p>
+
+<p>Now that works but if your do a full run of chef, you&rsquo;ll notice that your tomcat will restart and the file will first be cleansed back to it&rsquo;s original state, then the edit will be readded.  Well that&rsquo;s painful and ugly.</p>
+
+<h3>Override the template.</h3>
+
+<p>This is my preferred method and the best of both worlds.  Instead of forking a cookbook or hacking in a change, we take the existing template, copy it into our app cookbook, insert our configs and reference our edited template like such:</p>
+
+<p><code>ruby
+begin
+  r = resources(:template =&gt; "#{node[:tomcat][:config_dir]}/server.xml")
+  r.cookbook "appcookbook"
+rescue Chef::Exceptions::ResourceNotFound
+  Chef::Log.warn "could not find template to override!"
+end
+</code>
+Some argue that this is very similar to a full fork of a cookbook however I believe it&rsquo;s the best solution for the job.  To accompany this change (and always), you should lock the version of the included cookbook in your metadata.rb file to prevent the community cookbook from breaking if the template is changed in the future.</p>
+
+<p>Any alternative ideas or suggestions are welcome (if I can ever get disqus to show up)!</p>
+
+  </p>
+  <span class="meta">
+    written 
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-04-03T23:25:12-04:00" pubdate data-updated="true">April 3, 2014</time> in 
+    
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/chef/'>chef</a>, <a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+  
+</span>
+
+
+  </span>
+
+  
+</article>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="her-row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+  <a href="/"><h4>Home</h4></a>
+</div>
+
+<div class="col-md-2">
+  <div class="social-icon-list">
+    <a href="https://twitter.com/mikesplain"><img src="/images/glyphicons_social_31_twitter.png"/></a>
+    <a href="https://github.com/mikesplain"><img src="/images/glyphicons_social_21_github.png"/></a>
+    <a href="mailto:mike.splain@gmail.com"><img src="/images/glyphicons_social_39_e-mail.png"/></a>
+  </div>
+</div>
+
+<div class="pull-right">
+  <h4>Powered by <a href="http://octopress.org/">Octopress</a>. Designed by <a href="http://AdrianArtiles.com">Adrian Artiles</a>.</h4>
+</div>
+
+
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
