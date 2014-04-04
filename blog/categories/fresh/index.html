@@ -26,6 +26,10 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -42,70 +46,126 @@
 
 </head>
 
-  <body>
-    <a href="/" class="home-icon">
-      <img src="/images/home.png"/>
-    </a>
-
-    <div class="all-posts">
-  <div class="container">
-    <div class="row">
-      <div class="list-title col-md-offset-3 col-md-6">
-        <h4>Posts in fresh</h4>
-      </div>
-    </div>
-  </div>
-
-  <div class="article-list">
-    <div class="container">
-      
-        
-        <div class="row">
-          <div class="col-md-offset-3 col-md-6">
-            <article>
-  <h2><a href="/blog/2014/04/03/a-new-beginning/">A New Beginning</a></h2>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Technology.</a></h1>
   
-  <p>
-    <p>Over the years I&rsquo;ve attempted to document my thoughts, successes and failures in many locations throughout the internet, but never had a good output for my technical works.  I first started building this blog roughly 2 years ago, but only recently started lining up things to publish.  Over the next few weeks, months, and hopefully years, I&rsquo;ll start sharing tips and tricks I&rsquo;ve discovered—sometimes as I discover them.  Stay tuned.</p>
-
-  </p>
-  <span class="meta">
-    written 
-
-
-
-
-
-
-
-
+    <h2>My thoughts on tech, etc.</h2>
   
+</hgroup>
 
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikesplain.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
 
-
-<time datetime="2014-04-03T22:59:52-04:00" pubdate data-updated="true">April 3, 2014</time> in 
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">Category: Fresh</h1>
     
-
-<span class="categories">
+  </header>
   
-    <a class='category' href='/blog/categories/fresh/'>fresh</a>
+  <div id="blog-archives" class="category">
+
+
+
   
-</span>
+  <h2>2014</h2>
+
+<article>
+  
+<h1><a href="/blog/2014/04/03/a-new-beginning/">A New Beginning</a></h1>
+<time datetime="2014-04-03T22:59:52-04:00" pubdate><span class='month'>Apr</span> <span class='day'>03</span> <span class='year'>2014</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/fresh/'>fresh</a></span>
+</footer>
 
 
-  </span>
+</article>
+
+</div>
 
   
 </article>
 
-          </div>
-        </div>
-      
-    </div>
-  </div>
 </div>
 
-    <footer id="footer" class="her-row">
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/03/fix-chef-cookbook-templates-without-forking/">Fix Chef Cookbook Templates Without Forking</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/03/a-new-beginning/">A New Beginning</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikesplain">@mikesplain</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikesplain',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><footer id="footer" class="her-row">
   <div class="container">
     <div class="row">
       <div class="col-md-1">
@@ -120,14 +180,44 @@
   </div>
 </div>
 
-<div class="pull-right">
-  <h4>Powered by <a href="http://octopress.org/">Octopress</a>. Designed by <a href="http://AdrianArtiles.com">Adrian Artiles</a>.</h4>
-</div>
-
-
     </div>
   </div>
 </footer>
+</footer>
+  
 
-  </body>
+<script type="text/javascript">
+      var disqus_shortname = 'mikesplaingithubio';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
 </html>
