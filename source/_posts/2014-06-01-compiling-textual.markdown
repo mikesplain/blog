@@ -21,8 +21,11 @@ Latest version of xcode and command line tools installed.
 
 ```
 git clone https://github.com/Codeux/Textual.git
-cd Textual && open Main Project (Textual).xcodeproj
+cd Textual;
+open .
 ```
+
+Then in finder open `Main Project (Textual).xcodeproj`
 
 Here's the trick, if you aren't a member of Apple's Mac Developer program, you'll need to generate your own Code Signing self signed cert.  This is simple enough in Keychain Access:
 
