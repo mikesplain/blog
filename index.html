@@ -9,7 +9,7 @@
   <meta name="author" content="Mike Splain">
 
   
-  <meta name="description" content="One of the key features with Chef is reusability, which is why many teams have started using Application Cookbooks (as described here). In my &hellip;">
+  <meta name="description" content="Textual is a great up and coming IRC client for mac (a modified version of Limechat). They offer a nice free trial and a purchase version in the mac &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,91 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/06/01/compiling-textual/">Compiling Textual</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-06-01T11:37:58-04:00" pubdate data-updated="true">Jun 1<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.codeux.com/textual/">Textual</a> is a great up and coming IRC client for mac (a modified version of <a href="https://github.com/psychs/limechat">Limechat</a>).  They offer a nice free trial and a purchase version in the mac app store however they also release their code online for free.</p>
+
+<p>They say it&rsquo;s free to compile yourself but compiling the app in OSX 10.9.3 has changed a little than I found on other sites.</p>
+
+<p>Here&rsquo;s the process that worked for me:</p>
+
+<h2>Pre-req&rsquo;s</h2>
+
+<p>Latest version of xcode and command line tools installed.</p>
+
+<h2>Compiling</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/Codeux/Textual.git
+</span><span class='line'>cd Textual && open Main Project (Textual).xcodeproj</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here&rsquo;s the trick, if you aren&rsquo;t a member of Apple&rsquo;s Mac Developer program, you&rsquo;ll need to generate your own Code Signing self signed cert.  This is simple enough in Keychain Access:</p>
+
+<ul>
+<li>Open Keychain access</li>
+<li>Open Keychain Access Menu > Certificate Assistant > Create a Certificate&hellip;
+
+<ul>
+<li>Name: Developer ID Application</li>
+<li>Certificate Type: Code Signing</li>
+</ul>
+</li>
+<li>Click create</li>
+<li>Agree to whatever Keychain access requests.</li>
+</ul>
+
+
+<p>Go back to xcode:</p>
+
+<ul>
+<li>Click Build Settings</li>
+<li>Search for &ldquo;CODE_SIGN_IDENTITY&rdquo;</li>
+<li>For the master &ldquo;Code Signing Identity&rdquo; click the dropdown and select the cert you just created named &ldquo;Developer ID Application&rdquo;</li>
+<li>Dropdown will revert to &ldquo;Developer ID: *&rdquo;</li>
+</ul>
+
+
+<p>To the right of the stop button Click on the Textual Release and make sure &ldquo;Textual (Standard Release)&rdquo; is selected.</p>
+
+<p>Compile and you&rsquo;re all set.</p>
+
+<p>Enjoy!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -244,6 +329,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/01/compiling-textual/">Compiling Textual</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/03/fix-chef-cookbook-templates-without-forking/">Fix Chef Cookbook Templates Without Forking</a>

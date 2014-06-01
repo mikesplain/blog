@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Devops - Technology.</title>
+  <title>Compiling Textual - Technology.</title>
   <meta name="author" content="Mike Splain">
 
   
-  <meta name="description" content="Category: devops">
+  <meta name="description" content="Textual is a great up and coming IRC client for mac (a modified version of Limechat). They offer a nice free trial and a purchase version in the mac &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mikesplain.github.ioblog/categories/devops">
+  <link rel="canonical" href="http://mikesplain.github.io/blog/2014/06/01/compiling-textual">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Technology." type="application/atom+xml">
@@ -77,36 +77,135 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Devops</h1>
+    
+      <h1 class="entry-title">Compiling Textual</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-06-01T11:37:58-04:00" pubdate data-updated="true">Jun 1<span>st</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p><a href="http://www.codeux.com/textual/">Textual</a> is a great up and coming IRC client for mac (a modified version of <a href="https://github.com/psychs/limechat">Limechat</a>).  They offer a nice free trial and a purchase version in the mac app store however they also release their code online for free.</p>
 
-  
-  <h2>2014</h2>
+<p>They say it&rsquo;s free to compile yourself but compiling the app in OSX 10.9.3 has changed a little than I found on other sites.</p>
 
-<article>
-  
-<h1><a href="/blog/2014/04/03/fix-chef-cookbook-templates-without-forking/">Fix Chef Cookbook Templates Without Forking</a></h1>
-<time datetime="2014-04-03T23:25:12-04:00" pubdate><span class='month'>Apr</span> <span class='day'>03</span> <span class='year'>2014</span></time>
+<p>Here&rsquo;s the process that worked for me:</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/chef/'>chef</a>, <a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
+<h2>Pre-req&rsquo;s</h2>
+
+<p>Latest version of xcode and command line tools installed.</p>
+
+<h2>Compiling</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/Codeux/Textual.git
+</span><span class='line'>cd Textual && open Main Project (Textual).xcodeproj</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>Here&rsquo;s the trick, if you aren&rsquo;t a member of Apple&rsquo;s Mac Developer program, you&rsquo;ll need to generate your own Code Signing self signed cert.  This is simple enough in Keychain Access:</p>
 
+<ul>
+<li>Open Keychain access</li>
+<li>Open Keychain Access Menu > Certificate Assistant > Create a Certificate&hellip;
+
+<ul>
+<li>Name: Developer ID Application</li>
+<li>Certificate Type: Code Signing</li>
+</ul>
+</li>
+<li>Click create</li>
+<li>Agree to whatever Keychain access requests.</li>
+</ul>
+
+
+<p>Go back to xcode:</p>
+
+<ul>
+<li>Click Build Settings</li>
+<li>Search for &ldquo;CODE_SIGN_IDENTITY&rdquo;</li>
+<li>For the master &ldquo;Code Signing Identity&rdquo; click the dropdown and select the cert you just created named &ldquo;Developer ID Application&rdquo;</li>
+<li>Dropdown will revert to &ldquo;Developer ID: *&rdquo;</li>
+</ul>
+
+
+<p>To the right of the stop button Click on the Textual Release and make sure &ldquo;Textual (Standard Release)&rdquo; is selected.</p>
+
+<p>Compile and you&rsquo;re all set.</p>
+
+<p>Enjoy!</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Splain</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-06-01T11:37:58-04:00" pubdate data-updated="true">Jun 1<span>st</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikesplain.github.io/blog/2014/06/01/compiling-textual/" data-via="mikesplain" data-counturl="http://mikesplain.github.io/blog/2014/06/01/compiling-textual/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/04/03/fix-chef-cookbook-templates-without-forking/" title="Previous Post: Fix Chef cookbook templates without forking">&laquo; Fix Chef cookbook templates without forking</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -195,7 +294,10 @@
       var disqus_shortname = 'mikesplaingithubio';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://mikesplain.github.io/blog/2014/06/01/compiling-textual/';
+        var disqus_url = 'http://mikesplain.github.io/blog/2014/06/01/compiling-textual/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
