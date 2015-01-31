@@ -36,12 +36,11 @@ Here's the trick, if you aren't a member of Apple's Mac Developer program, you'l
 * Click create
 * Agree to whatever Keychain access requests.
 
-Go back to xcode:
+_Modified as of 1/30/15:_
 
-* Click Build Settings
-* Search for "CODE_SIGN_IDENTITY"
-* For the master "Code Signing Identity" click the dropdown and select the cert you just created named "Developer ID Application"
-* Dropdown will revert to "Developer ID: *"
+> Once you have your code signing certificate, do not modify the Build Settings of Textual through Xcode. Instead, modify the file at the path: Resources ➜ Build Configurations ➜ Code Signing Identity.xcconfig — The contents of this file define the name of the certificate which will be used for code signing.
+>
+> <cite>[Textual Docs](https://github.com/Codeux-Software/Textual#building-textual)</cite>
 
 To the right of the stop button Click on the Textual Release and make sure "Textual (Standard Release)" is selected.
 
