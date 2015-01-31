@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Devops | Technology.]]></title>
   <link href="http://mikesplain.github.io/blog/categories/devops/atom.xml" rel="self"/>
   <link href="http://mikesplain.github.io/"/>
-  <updated>2014-06-01T11:56:34-04:00</updated>
+  <updated>2015-01-30T22:23:06-05:00</updated>
   <id>http://mikesplain.github.io/</id>
   <author>
     <name><![CDATA[Mike Splain]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Large Files in Test Kitchen]]></title>
+    <link href="http://mikesplain.github.io/blog/2014/06/03/large-files-in-test-kitchen/"/>
+    <updated>2014-06-03T17:33:12-04:00</updated>
+    <id>http://mikesplain.github.io/blog/2014/06/03/large-files-in-test-kitchen</id>
+    <content type="html"><![CDATA[<p>A quick tip when testing Chef cookbooks in Test Kitchen.</p>
+
+<p>Lets say you&rsquo;re spinning up a Tomcat app, so you create a run list with the Tomcat7 and the Java cookbooks.  Great it works!</p>
+
+<p>Now you go to add features, and each destroy and converge taks a million years to download JDK.  You could setup a cache or something with polipio but there&rsquo;s a simpler way that Sean Carolan just shared with me:</p>
+
+<p>Place the big files locally in a folder on your disk.  In your <code>.kitchen.yml</code> add a few configs:</p>
+
+<h2>&#8220;`ruby</h2>
+
+<p>driver:
+  name: vagrant</p>
+
+<p>provisioner:
+  name: chef_zero
+  data_path: /Users/mike/Box\ Documents/private-chef</p>
+
+<p>platforms:
+  - name: ubuntu-12.04
+    attributes:
+      java:
+        jdk:
+          7:
+            x86_64:
+              url: file:///tmp/kitchen/data/jdk-7u55-linux-x64.tar.gz</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fix Chef Cookbook Templates Without Forking]]></title>
@@ -46,24 +79,20 @@
 
 <p>Lets say you&rsquo;re building a tomcat based app and have used the <a href="https://github.com/opscode-cookbooks/tomcat">community cookbook</a>.  Now when you load the WAR into your project, you want to mount it on the base rather than www.example.com/appname.  Of course there are many ways to solve this including tools like nginx but rewrites cause other issues with sessions and cookies&hellip; so lets mount it the way our developer requests.  Unfortunately the cookbook does not provide functionality to edit the docBase Context or insert it as an attribute.  Lets insert it by hand:</p>
 
-<p>``` ruby /recipes/default.rb
-ruby_block &ldquo;Fix Tomcat&rdquo; do
-  block do</p>
+<pre><code class="ruby /recipes/default.rb">ruby_block "Fix Tomcat" do
+  block do
+    puts "Lets add a line to fix tomcat docBase"
+    file = Chef::Util::FileEdit.new(node[:tomcat][:config_dir] + "/server.xml")
 
-<pre><code>puts "Lets add a line to fix tomcat docBase"
-file = Chef::Util::FileEdit.new(node[:tomcat][:config_dir] + "/server.xml")
+    file.insert_line_after_match(
+    "&lt;\!-- Access log processes all example.",
+    "\n        # Added Via Chef:\n        &lt;Context docBase=\"appname\" path=\"\" reloadable=\"true\"/&gt;\n        &lt;!-- Access log processes all example."
+    )
 
-file.insert_line_after_match(
-"&lt;\!-- Access log processes all example.",
-"\n        # Added Via Chef:\n        &lt;Context docBase=\"appname\" path=\"\" reloadable=\"true\"/&gt;\n        &lt;!-- Access log processes all example."
-)
-
-file.write_file
-</code></pre>
-
-<p>  end
+    file.write_file
+  end
 end
-```</p>
+</code></pre>
 
 <p>Now that works but if your do a full run of chef, you&rsquo;ll notice that your tomcat will restart and the file will first be cleansed back to it&rsquo;s original state, then the edit will be readded.  Well that&rsquo;s painful and ugly.</p>
 
@@ -71,15 +100,15 @@ end
 
 <p>This is my preferred method and the best of both worlds.  Instead of forking a cookbook or hacking in a change, we take the existing template, copy it into our app cookbook, insert our configs and reference our edited template like such:</p>
 
-<p><code>ruby /recipes/default.rb
-begin
+<pre><code class="ruby /recipes/default.rb">begin
   r = resources(:template =&gt; "#{node[:tomcat][:config_dir]}/server.xml")
   r.cookbook "appcookbook"
 rescue Chef::Exceptions::ResourceNotFound
   Chef::Log.warn "could not find template to override!"
 end
-</code>
-Some argue that this is very similar to a full fork of a cookbook however I believe it&rsquo;s the best solution for the job.  To accompany this change (and always), you should lock the version of the included cookbook in your metadata.rb file to prevent the community cookbook from breaking if the template is changed in the future.</p>
+</code></pre>
+
+<p>Some argue that this is very similar to a full fork of a cookbook however I believe it&rsquo;s the best solution for the job.  To accompany this change (and always), you should lock the version of the included cookbook in your metadata.rb file to prevent the community cookbook from breaking if the template is changed in the future.</p>
 
 <p>Any alternative ideas or suggestions are welcome (if I can ever get disqus to show up)!</p>
 ]]></content>
