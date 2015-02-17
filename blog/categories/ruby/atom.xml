@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ruby | Technology.]]></title>
-  <link href="http://mikesplain.github.io/blog/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://mikesplain.github.io/blog/blog/categories/ruby//blog/atom.xml" rel="self"/>
   <link href="http://mikesplain.github.io/blog/"/>
   <updated>2015-01-30T22:23:06-05:00</updated>
   <id>http://mikesplain.github.io/blog/</id>
