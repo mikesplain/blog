@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Technology.]]></title>
-  <link href="http://mikesplain.github.io/atom.xml" rel="self"/>
-  <link href="http://mikesplain.github.io/"/>
+  <link href="http://mikesplain.github.io/blog/atom.xml" rel="self"/>
+  <link href="http://mikesplain.github.io/blog/"/>
   <updated>2014-06-01T11:56:34-04:00</updated>
-  <id>http://mikesplain.github.io/</id>
+  <id>http://mikesplain.github.io/blog/</id>
   <author>
     <name><![CDATA[Mike Splain]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Compiling Textual]]></title>
-    <link href="http://mikesplain.github.io/blog/2014/06/01/compiling-textual/"/>
+    <link href="http://mikesplain.github.io/blog/blog/2014/06/01/compiling-textual/"/>
     <updated>2014-06-01T11:37:58-04:00</updated>
-    <id>http://mikesplain.github.io/blog/2014/06/01/compiling-textual</id>
+    <id>http://mikesplain.github.io/blog/blog/2014/06/01/compiling-textual</id>
     <content type="html"><![CDATA[<p><a href="http://www.codeux.com/textual/">Textual</a> is a great up and coming IRC client for mac (a modified version of <a href="https://github.com/psychs/limechat">Limechat</a>).  They offer a nice free trial and a purchase version in the mac app store however they also release their code online for free.</p>
 
 <p>They say it&rsquo;s free to compile yourself but compiling the app in OSX 10.9.3 has changed a little than I found on other sites.</p>
@@ -76,9 +76,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fix Chef Cookbook Templates Without Forking]]></title>
-    <link href="http://mikesplain.github.io/blog/2014/04/03/fix-chef-cookbook-templates-without-forking/"/>
+    <link href="http://mikesplain.github.io/blog/blog/2014/04/03/fix-chef-cookbook-templates-without-forking/"/>
     <updated>2014-04-03T23:25:12-04:00</updated>
-    <id>http://mikesplain.github.io/blog/2014/04/03/fix-chef-cookbook-templates-without-forking</id>
+    <id>http://mikesplain.github.io/blog/blog/2014/04/03/fix-chef-cookbook-templates-without-forking</id>
     <content type="html"><![CDATA[<p>One of the key features with Chef is reusability, which is why many teams have started using Application Cookbooks (as <a href="http://alluvium.com/blog/2013/05/03/the-application-cookbook-pattern-berkshelf-and-team-chef-workflow/">described here</a>).  In my experience, application cookbooks are a game changer and make development, testing, and deployment simple.  That being said, app cookbooks create their own set of issues as well&hellip;</p>
 
 <p>Our team has worked to use community cookbooks when possible to build out an environment, but there are often times a cookbook may be missing a simple line or an attribute required for your use case.  When that happens you have a number of options:</p>
@@ -165,9 +165,9 @@
   
   <entry>
     <title type="html"><![CDATA[A New Beginning]]></title>
-    <link href="http://mikesplain.github.io/blog/2014/04/03/a-new-beginning/"/>
+    <link href="http://mikesplain.github.io/blog/blog/2014/04/03/a-new-beginning/"/>
     <updated>2014-04-03T22:59:52-04:00</updated>
-    <id>http://mikesplain.github.io/blog/2014/04/03/a-new-beginning</id>
+    <id>http://mikesplain.github.io/blog/blog/2014/04/03/a-new-beginning</id>
     <content type="html"><![CDATA[<p>Over the years I&rsquo;ve attempted to document my thoughts, successes and failures in many locations throughout the internet, but never had a good output for my technical works.  I first started building this blog roughly 2 years ago, but only recently started lining up things to publish.  Over the next few weeks, months, and hopefully years, I&rsquo;ll start sharing tips and tricks I&rsquo;ve discovered—sometimes as I discover them.  Stay tuned.</p>
 ]]></content>
   </entry>

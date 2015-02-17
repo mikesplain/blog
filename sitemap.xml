@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://mikesplain.github.io/blog/2014/06/03/large-files-in-test-kitchen/</loc>
+    <loc>http://mikesplain.github.io/blog/blog/2014/06/03/large-files-in-test-kitchen/</loc>
     <lastmod>2014-06-03T17:33:12-04:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://mikesplain.github.io/blog/2014/06/01/compiling-textual/</loc>
+    <loc>http://mikesplain.github.io/blog/blog/2014/06/01/compiling-textual/</loc>
     <lastmod>2014-06-01T11:37:58-04:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://mikesplain.github.io/blog/2014/04/03/fix-chef-cookbook-templates-without-forking/</loc>
+    <loc>http://mikesplain.github.io/blog/blog/2014/04/03/fix-chef-cookbook-templates-without-forking/</loc>
     <lastmod>2014-04-03T23:25:12-04:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://mikesplain.github.io/blog/2014/04/03/a-new-beginning/</loc>
+    <loc>http://mikesplain.github.io/blog/blog/2014/04/03/a-new-beginning/</loc>
     <lastmod>2014-04-03T22:59:52-04:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://mikesplain.github.io/about.html</loc>
+    <loc>http://mikesplain.github.io/blog/about.html</loc>
     <lastmod>2015-01-30T22:23:06-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://mikesplain.github.io/blog/archives/</loc>
+    <loc>http://mikesplain.github.io/blog/blog/archives/</loc>
     <lastmod>2015-01-30T22:23:06-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://mikesplain.github.io/</loc>
+    <loc>http://mikesplain.github.io/blog/</loc>
     <lastmod>2015-01-30T22:23:06-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://mikesplain.github.io/posts/</loc>
+    <loc>http://mikesplain.github.io/blog/posts/</loc>
     <lastmod>2015-01-30T22:23:06-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://mikesplain.github.io/about-me/</loc>
+    <loc>http://mikesplain.github.io/blog/about-me/</loc>
     <lastmod>2015-01-30T22:23:06-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

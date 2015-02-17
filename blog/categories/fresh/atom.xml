@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Fresh | Technology.]]></title>
-  <link href="http://mikesplain.github.io/blog/categories/fresh/atom.xml" rel="self"/>
-  <link href="http://mikesplain.github.io/"/>
+  <link href="http://mikesplain.github.io/blog/blog/categories/fresh/atom.xml" rel="self"/>
+  <link href="http://mikesplain.github.io/blog/"/>
   <updated>2015-01-30T22:23:06-05:00</updated>
-  <id>http://mikesplain.github.io/</id>
+  <id>http://mikesplain.github.io/blog/</id>
   <author>
     <name><![CDATA[Mike Splain]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[A New Beginning]]></title>
-    <link href="http://mikesplain.github.io/blog/2014/04/03/a-new-beginning/"/>
+    <link href="http://mikesplain.github.io/blog/blog/2014/04/03/a-new-beginning/"/>
     <updated>2014-04-03T22:59:52-04:00</updated>
-    <id>http://mikesplain.github.io/blog/2014/04/03/a-new-beginning</id>
+    <id>http://mikesplain.github.io/blog/blog/2014/04/03/a-new-beginning</id>
     <content type="html"><![CDATA[<p>Over the years I&rsquo;ve attempted to document my thoughts, successes and failures in many locations throughout the internet, but never had a good output for my technical works.  I first started building this blog roughly 2 years ago, but only recently started lining up things to publish.  Over the next few weeks, months, and hopefully years, I&rsquo;ll start sharing tips and tricks I&rsquo;ve discovered—sometimes as I discover them.  Stay tuned.</p>
 ]]></content>
   </entry>

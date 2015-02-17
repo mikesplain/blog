@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://mikesplain.github.io/sitemap.xml 
+Sitemap: http://mikesplain.github.io/blog/sitemap.xml 

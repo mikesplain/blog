@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Devops | Technology.]]></title>
-  <link href="http://mikesplain.github.io/blog/categories/devops/atom.xml" rel="self"/>
-  <link href="http://mikesplain.github.io/"/>
+  <link href="http://mikesplain.github.io/blog/blog/categories/devops/atom.xml" rel="self"/>
+  <link href="http://mikesplain.github.io/blog/"/>
   <updated>2015-01-30T22:23:06-05:00</updated>
-  <id>http://mikesplain.github.io/</id>
+  <id>http://mikesplain.github.io/blog/</id>
   <author>
     <name><![CDATA[Mike Splain]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Large Files in Test Kitchen]]></title>
-    <link href="http://mikesplain.github.io/blog/2014/06/03/large-files-in-test-kitchen/"/>
+    <link href="http://mikesplain.github.io/blog/blog/2014/06/03/large-files-in-test-kitchen/"/>
     <updated>2014-06-03T17:33:12-04:00</updated>
-    <id>http://mikesplain.github.io/blog/2014/06/03/large-files-in-test-kitchen</id>
+    <id>http://mikesplain.github.io/blog/blog/2014/06/03/large-files-in-test-kitchen</id>
     <content type="html"><![CDATA[<p>A quick tip when testing Chef cookbooks in Test Kitchen.</p>
 
 <p>Lets say you&rsquo;re spinning up a Tomcat app, so you create a run list with the Tomcat7 and the Java cookbooks.  Great it works!</p>
@@ -48,9 +48,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fix Chef Cookbook Templates Without Forking]]></title>
-    <link href="http://mikesplain.github.io/blog/2014/04/03/fix-chef-cookbook-templates-without-forking/"/>
+    <link href="http://mikesplain.github.io/blog/blog/2014/04/03/fix-chef-cookbook-templates-without-forking/"/>
     <updated>2014-04-03T23:25:12-04:00</updated>
-    <id>http://mikesplain.github.io/blog/2014/04/03/fix-chef-cookbook-templates-without-forking</id>
+    <id>http://mikesplain.github.io/blog/blog/2014/04/03/fix-chef-cookbook-templates-without-forking</id>
     <content type="html"><![CDATA[<p>One of the key features with Chef is reusability, which is why many teams have started using Application Cookbooks (as <a href="http://alluvium.com/blog/2013/05/03/the-application-cookbook-pattern-berkshelf-and-team-chef-workflow/">described here</a>).  In my experience, application cookbooks are a game changer and make development, testing, and deployment simple.  That being said, app cookbooks create their own set of issues as well&hellip;</p>
 
 <p>Our team has worked to use community cookbooks when possible to build out an environment, but there are often times a cookbook may be missing a simple line or an attribute required for your use case.  When that happens you have a number of options:</p>
